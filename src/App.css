@@ -71,3 +71,17 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+.loginfield {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loginform {
+  text-align: center;
+  margin: 100px auto;
+  min-width: 500px;
+  margin-left: 200px;
+}

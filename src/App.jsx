@@ -16,6 +16,7 @@ import { Seats } from './Seats';
 import { AddTheatre } from './AddTheatre';
 import { EditTheatre } from './EditTheatre';
 import { AddMovies } from './AddMovies';
+import { Home } from './Home';
 
 export default function App() {
 
@@ -28,30 +29,38 @@ export default function App() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
-            <Button onClick={() => navigate("/")} color="inherit">Home</Button>
+
             <Button onClick={() => navigate("/movies")} color="inherit">Movie</Button>
             <Button onClick={() => navigate("/addmovies")} color="inherit">Add Movies</Button>
             <Button onClick={() => navigate("/add-theatre")} color="inherit">Add Theatre</Button>
+            <Button sx={{ marginLeft: "auto" }} onClick={() => navigate("/")} color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
       </Box>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<MovieList movieList={movieList} setMovieList={setMovieList} />} />
-        <Route path="/movies/:id" element={<MovieDetails movieList={movieList} />} />
-        <Route path="/addmovies" element={<AddMovies />} />
-        <Route path="/booking" element={<Booking />} />
-        <Route path="/seats" element={<Seats />} />
-        <Route path="/ticketbooked" element={<TicketBooked />} />
-        <Route path="/add-theatre" element={<AddTheatre />} />
-        <Route path="/booking/edit-theatre/:id" element={<EditTheatre />} />
+        <Route path="/movies" element={<ProtectedRoute><MovieList movieList={movieList} setMovieList={setMovieList} /></ProtectedRoute>} />
+        <Route path="/movies/:id" element={<ProtectedRoute><MovieDetails movieList={movieList} /></ProtectedRoute>} />
+        <Route path="/addmovies" element={<ProtectedRoute><AddMovies /></ProtectedRoute>} />
+        <Route path="/booking" element={<ProtectedRoute><Booking /></ProtectedRoute>} />
+        <Route path="/seats" element={<ProtectedRoute><Seats /></ProtectedRoute>} />
+        <Route path="/ticketbooked" element={<ProtectedRoute><TicketBooked /></ProtectedRoute>} />
+        <Route path="/add-theatre" element={<ProtectedRoute><AddTheatre /></ProtectedRoute>} />
+        <Route path="/booking/edit-theatre/:id" element={<ProtectedRoute><EditTheatre /></ProtectedRoute>} />
       </Routes>
 
     </div>
 
   )
 }
-
+function ProtectedRoute({ children }) {
+  const token = localStorage.getItem('token');
+  // const token=false;
+  return (
+    token ? <section>{children}</section> : <Navigate replace to="/" />
+    //  token? <section>{children}</section>:<h1>unautharaied</h1>
+  )
+}
 function TicketBooked() {
   return (
     <div> your ticked has conformed</div>
@@ -84,12 +93,6 @@ function MovieDetails({ movieList }) {
       </div>
       <Button onClick={() => navigate("/booking")} variant="contained" color="primary">Book Tickets</Button>
     </div>
-  )
-}
-
-function Home() {
-  return (
-    <div>Book my show</div>
   )
 }
 
