@@ -40,7 +40,7 @@ function EditTheatreList({ theatreList }) {
                 method: "PUT",
                 body: JSON.stringify(newUpdate),
                 headers: {
-                    "content-type": "appliction/json"
+                    "content-type": "application/json"
                 }
             })
     }

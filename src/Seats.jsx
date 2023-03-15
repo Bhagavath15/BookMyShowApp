@@ -46,7 +46,7 @@ function AvalSeat({ button, key }) {
     }
     return (
         <div className="seats">
-            <IconButton arail-label={key} color={active ? "success" : "inherit"} onClick={handleClick}>{button}</IconButton>
+            <IconButton arail-label={key} color={active ? "inherit" : "success"} onClick={handleClick}>{button}</IconButton>
 
         </div>
     )

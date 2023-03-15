@@ -15,6 +15,7 @@ import { Booking } from './Booking';
 import { Seats } from './Seats';
 import { AddTheatre } from './AddTheatre';
 import { EditTheatre } from './EditTheatre';
+import { AddMovies } from './AddMovies';
 
 export default function App() {
 
@@ -29,6 +30,7 @@ export default function App() {
           <Toolbar>
             <Button onClick={() => navigate("/")} color="inherit">Home</Button>
             <Button onClick={() => navigate("/movies")} color="inherit">Movie</Button>
+            <Button onClick={() => navigate("/addmovies")} color="inherit">Add Movies</Button>
             <Button onClick={() => navigate("/add-theatre")} color="inherit">Add Theatre</Button>
           </Toolbar>
         </AppBar>
@@ -37,6 +39,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<MovieList movieList={movieList} setMovieList={setMovieList} />} />
         <Route path="/movies/:id" element={<MovieDetails movieList={movieList} />} />
+        <Route path="/addmovies" element={<AddMovies />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/seats" element={<Seats />} />
         <Route path="/ticketbooked" element={<TicketBooked />} />
@@ -48,6 +51,7 @@ export default function App() {
 
   )
 }
+
 function TicketBooked() {
   return (
     <div> your ticked has conformed</div>
