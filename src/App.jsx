@@ -72,7 +72,7 @@ function MovieDetails({ movieList }) {
   const { id } = useParams()
   const [movie, setMovie] = useState([])
   useEffect(() => {
-    fetch(`https://node-workspace-chi.vercel.app/movies/${id}`)
+    fetch(`https://bookmyshow-back.vercel.app/movies/${id}`)
       .then((data) => data.json())
       .then((mvs) => setMovie(mvs))
   }, [id])
@@ -98,7 +98,7 @@ function MovieDetails({ movieList }) {
 
 function MovieList({ movieList, setMovieList }) {
   useEffect(() => {
-    fetch("https://node-workspace-chi.vercel.app/movies")
+    fetch("https://bookmyshow-back.vercel.app/movies")
       .then((data) => data.json())
       .then((mvs) => setMovieList(mvs))
   }, [])

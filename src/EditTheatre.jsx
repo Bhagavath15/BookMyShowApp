@@ -9,7 +9,7 @@ export function EditTheatre() {
 
     const [theatreList, setTheatreList] = useState(null)
     useEffect(() => {
-        fetch(`https://64113a2a2e340b45b13f4ed5.mockapi.io/theatre/${id}`)
+        fetch(`https://bookmyshow-back.vercel.app/theatre/${id}`)
             .then((data) => data.json())
             .then((th) => setTheatreList(th))
     }, [])
@@ -35,7 +35,7 @@ function EditTheatreList({ theatreList }) {
     })
     const updateTheatre = (newUpdate) => {
         console.log(newUpdate)
-        fetch(`https://64113a2a2e340b45b13f4ed5.mockapi.io/theatre/${theatreList.id}`,
+        fetch(`https://bookmyshow-back.vercel.app/theatre/${theatreList.id}`,
             {
                 method: "PUT",
                 body: JSON.stringify(newUpdate),

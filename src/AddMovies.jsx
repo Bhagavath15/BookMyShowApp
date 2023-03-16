@@ -5,33 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 
 export function AddMovies() {
-    //     const navigate = useNavigate()
-    //     const { handleChange, handleSubmit, handleBlur, values } = useFormik({
-    //         initialValues: {
-    //             id: "",
-    //             name: "",
-    //             poster: "",
-    //             rating: "",
-    //             summary: "",
-    //             trailer: ""
-    //         },
-    //         onSubmit: (values) => {
-    //             console.log("form value", values)
-    //             addTheatre(values)
-    //             navigate("/movies")
-    //         }
 
-
-    //     })
-    //     const addTheatre = (values) => {
-    //         fetch("https://node-workspace-chi.vercel.app/movies",
-    //             {
-    //                 method: "POST",
-    //                 body: JSON.stringify(values),
-    //                 headers: {
-    //                     "content-type": "applicaation/json"
-    //                 }
-    //             })
     const navigate = useNavigate()
     const { handleChange, handleSubmit, handleBlur, values } = useFormik({
         initialValues: {

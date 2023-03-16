@@ -25,7 +25,7 @@ function Login() {
         onSubmit: async (values) => {
             // console.log(values)
 
-            const data = await fetch("http://localhost:4002/users/login", {
+            const data = await fetch("https://bookmyshow-back.vercel.app/users/login", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -90,7 +90,7 @@ function Signin() {
     const adddata = (newdata) => {
         console.log(newdata)
 
-        fetch("http://localhost:4002/users/signup", {
+        fetch("https://bookmyshow-back.vercel.app/users/signup", {
             method: "POST",
             body: JSON.stringify(newdata),
             headers: {
