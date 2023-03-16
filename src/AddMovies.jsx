@@ -23,7 +23,7 @@ export function AddMovies() {
         }
     })
     const addMovies = (values) => {
-        fetch("https://node-workspace-chi.vercel.app/movies", {
+        fetch("https://bookmyshow-back.vercel.app/movies", {
             method: "POST",
             body: JSON.stringify(values),
             headers: {

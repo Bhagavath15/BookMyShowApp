@@ -36,7 +36,7 @@ export function AddTheatre() {
 
     })
     const addTheatre = (values) => {
-        fetch("https://64113a2a2e340b45b13f4ed5.mockapi.io/theatre",
+        fetch("https://bookmyshow-back.vercel.app/theatre",
             {
                 method: "POST",
                 body: JSON.stringify(values),

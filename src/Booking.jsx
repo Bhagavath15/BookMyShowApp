@@ -38,7 +38,7 @@ function TheatreName() {
     const navigate = useNavigate()
     const [theatreList, setTheatreList] = useState([])
     const getTheatre = () => {
-        fetch("https://bookmyshow-back.vercel.app/theatre",
+        fetch("https://bookmyshow-back.vercel.app/booking",
             { method: "GET" })
             .then((data) => data.json())
             .then((usr) => setTheatreList(usr))
