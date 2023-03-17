@@ -3,10 +3,13 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 export function Home() {
     return (
-        <div><Login /><Signin /></div>
+        <div><Signin /><Login /></div>
 
     );
 }
@@ -46,8 +49,9 @@ function Login() {
         }
     });
     return (
+
         <form onSubmit={formik.handleSubmit} className='loginform'>
-            <h2>Login</h2>
+            <h2>LOGIN</h2>
             <div className='loginfield'>
                 <TextField
                     name='username'
@@ -61,7 +65,7 @@ function Login() {
                     label="password"
                     name="password"
                     variant="outlined" />
-                <Button color={formstate} type='submit' variant="contained">{formstate === "success" ? "submit" : "retry"}</Button>
+                <Button color={formstate} type='submit' variant="contained">{formstate === "success" ? "LOGIN" : "RETRY"}</Button>
             </div>
 
         </form>
@@ -100,8 +104,9 @@ function Signin() {
         navigate("/")
     };
     return (
+
         <form onSubmit={formik.handleSubmit} className='loginform'>
-            <h2>Signup</h2>
+            <h2>SIGNUP</h2>
             <div className='loginfield'>
                 <TextField
                     placeholder="username"
