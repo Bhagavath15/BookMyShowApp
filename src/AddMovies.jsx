@@ -12,7 +12,7 @@ export function AddMovies() {
             id: "",
             name: "",
             poster: "",
-            raating: "",
+            rating: "",
             summary: "",
             trailer: ""
         },
@@ -50,7 +50,7 @@ export function AddMovies() {
                     id="outlined-basic"
                     label="name"
                     variant="standard"></TextField>
-                <TextField name=" poster"
+                <TextField name="poster"
                     fullWidth sx={{ m: 1 }}
                     id="outlined-basic"
                     onBlur={handleBlur}
@@ -66,13 +66,13 @@ export function AddMovies() {
                     value={values.rating}
                     label="rating"
                     variant="standard"></TextField>
-                <TextField name=" summary"
+                <TextField name="summary"
                     fullWidth sx={{ m: 1 }}
                     id="outlined-basic"
                     onBlur={handleBlur}
                     onChange={handleChange}
                     value={values.summary}
-                    label=" summary"
+                    label="summary"
                     variant="standard"></TextField>
                 <TextField name="trailer"
                     fullWidth sx={{ m: 1 }}

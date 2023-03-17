@@ -63,7 +63,9 @@ function ProtectedRoute({ children }) {
 }
 function TicketBooked() {
   return (
-    <div> your ticked has conformed</div>
+    <div>
+      <h1>Your ticked has conformed</h1>
+    </div>
   )
 }
 
