@@ -16,11 +16,13 @@ import { Seats } from './Seats';
 import { AddTheatre } from './AddTheatre';
 import { EditTheatre } from './EditTheatre';
 import { AddMovies } from './AddMovies';
-import { Home } from './Home';
+import { Login, Signin, ForgetPassword, VerifyOtp } from './Home';
+import { TicketBook } from './TicketBook';
+
 
 export default function App() {
 
-
+  const [seat, setSeat] = useState([[]])
   const [movieList, setMovieList] = useState([])
   const navigate = useNavigate()
   return (
@@ -38,7 +40,11 @@ export default function App() {
         </AppBar>
       </Box>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/book" element={<TicketBook seat={seat} setSeat={setSeat} />} />
+        <Route path="/" element={<Signin />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/verifyotp" element={<VerifyOtp />} />
         <Route path="/movies" element={<ProtectedRoute><MovieList movieList={movieList} setMovieList={setMovieList} /></ProtectedRoute>} />
         <Route path="/movies/:id" element={<ProtectedRoute><MovieDetails movieList={movieList} /></ProtectedRoute>} />
         <Route path="/addmovies" element={<ProtectedRoute><AddMovies /></ProtectedRoute>} />
@@ -53,6 +59,7 @@ export default function App() {
 
   )
 }
+
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('token');
   // const token=false;
@@ -72,14 +79,14 @@ function MovieDetails({ movieList }) {
   const { id } = useParams()
   const [movie, setMovie] = useState([])
   useEffect(() => {
-    fetch(`https://bookmyshow-back.vercel.app/movies/${id}`)
+    fetch(`https://book-my-show-app-backend.vercel.app/movies/${id}`)
       .then((data) => data.json())
       .then((mvs) => setMovie(mvs))
   }, [id])
   return (
-    <div>
+    <div className="trailers">
       <iframe
-        width="100%"
+        width="750"
         height="450"
         src={movie.trailer}
         title="Marvel"
@@ -98,7 +105,7 @@ function MovieDetails({ movieList }) {
 
 function MovieList({ movieList, setMovieList }) {
   useEffect(() => {
-    fetch("https://bookmyshow-back.vercel.app/movies")
+    fetch("https://book-my-show-app-backend.vercel.app/movies")
       .then((data) => data.json())
       .then((mvs) => setMovieList(mvs))
   }, [])
@@ -114,7 +121,7 @@ function MovieList({ movieList, setMovieList }) {
 function Movies({ movie, id }) {
   const navigate = useNavigate()
   return (
-    <Card className="card"
+    <Card className="movie-card"
       onClick={() => navigate(`/movies/${id}`)}>
 
       <div className="movie-container">
@@ -137,3 +144,4 @@ function Movies({ movie, id }) {
     </Card >
   )
 }
+

@@ -36,7 +36,7 @@ export function AddTheatre() {
 
     })
     const addTheatre = (values) => {
-        fetch("https://bookmyshow-back.vercel.app/theatre",
+        fetch("https://book-my-show-app-backend.vercel.app/theatre",
             {
                 method: "POST",
                 body: JSON.stringify(values),

@@ -38,7 +38,7 @@ function TheatreName() {
     const navigate = useNavigate()
     const [theatreList, setTheatreList] = useState([])
     const getTheatre = () => {
-        fetch("https://bookmyshow-back.vercel.app/booking",
+        fetch("https://book-my-show-app-backend.vercel.app/booking",
             { method: "GET" })
             .then((data) => data.json())
             .then((usr) => setTheatreList(usr))
@@ -47,7 +47,7 @@ function TheatreName() {
 
     const deleteTheatre = async (id) => {
         console.log("deleting...", id)
-        await fetch(`https://bookmyshow-back.vercel.app/theatre/${id}`, {
+        await fetch(`https://book-my-show-app-backend.vercel.app/theatre/${id}`, {
             method: "DELETE"
         }).then(() => getTheatre())
     }

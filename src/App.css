@@ -8,7 +8,7 @@ body {
 }
 
 .movie-poster {
-  height: 640px;
+  height: 440px;
   width: 100%;
   object-fit: cover
 }
@@ -38,10 +38,21 @@ body {
   justify-content: space-around;
 }
 
-.card:hover {
+.movie-card {
+  margin: 20px
+}
+
+.movie-card:hover {
   cursor: pointer
 }
 
+.trailer {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 
 .theatre {
   margin-top: 20px;
@@ -66,26 +77,57 @@ body {
 
 .seats {
   margin-top: 20px;
-  margin-left: 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-}
-
-.loginfield {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-
+  flex-direction: column
 }
 
 .loginform {
-  text-align: center;
-  margin: 100px auto;
-  min-width: 500px;
-  padding: 30px;
-  border: 5px solid grey;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.loginfield {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+
+  max-width: 250px;
+  padding: 80px;
+  gap: 10px;
+  align-content: center;
+  /* background: linear-gradient(-70deg, #fa7c30 30%, rgba(0, 0, 0, 0) 30%) */
+}
+
+.card .alreadyuser:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: dodgerblue
+}
+
+.login-card {
+  margin: 20px;
+  padding: 50px;
+
+}
+
+.card .btn {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .home {
